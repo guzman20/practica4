@@ -1,4 +1,4 @@
-package des.hibernate.controller;
+package des.springboot_hibernate.controller;
 
 import javax.servlet.http.HttpSession;
 

@@ -1,4 +1,4 @@
-package des.hibernate.dao;
+package des.springboot_hibernate.dao;
 
 public interface GenericoDao<T> {
 	

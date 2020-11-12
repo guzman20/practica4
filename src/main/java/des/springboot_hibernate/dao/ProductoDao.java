@@ -1,8 +1,8 @@
-package des.hibernate.dao;
+package des.springboot_hibernate.dao;
 
 import java.util.List;
 
-import des.hibernate.entidades.Producto;
+import des.springboot_hibernate.entidades.Producto;
 
 
 

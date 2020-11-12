@@ -1,11 +1,12 @@
-package des.hibernate.entidades;
+package des.springboot_hibernate.entidades;
+
 
 public class Producto {
 	private Long id;
 	private String titulo;
 	private String descripcion;
-	private Integer precio;
-	private Integer descuento;
+	private Double precio;
+	private Double descuento;
 	
 	public 	Producto() {
 		
@@ -13,7 +14,7 @@ public class Producto {
 	
 	
 
-	public Producto(Long id, String titulo, String descripcion, Integer precio, Integer descuento) {
+	public Producto(Long id, String titulo, String descripcion, Double precio, Double descuento) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -22,7 +23,7 @@ public class Producto {
 		this.descuento = descuento;
 	}
 
-	public Producto(String titulo, String descripcion, Integer precio, Integer descuento) {
+	public Producto(String titulo, String descripcion, Double precio, Double descuento) {
 		super();
 		this.titulo = titulo;
 		this.descripcion = descripcion;
@@ -48,11 +49,11 @@ public class Producto {
 		this.titulo = titulo;
 	}
 
-	public Integer getPrecio() {
+	public Double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Integer precio) {
+	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
 
@@ -82,13 +83,13 @@ public class Producto {
 
 
 
-	public Integer getDescuento() {
+	public Double getDescuento() {
 		return descuento;
 	}
 
 
 
-	public void setDescuento(Integer descuento) {
+	public void setDescuento(Double descuento) {
 		this.descuento = descuento;
 	}
 	
