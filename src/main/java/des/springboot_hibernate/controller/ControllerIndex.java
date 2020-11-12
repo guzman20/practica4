@@ -1,7 +1,5 @@
 package des.springboot_hibernate.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ControllerIndex {
 
 	@GetMapping("/index")
-	public String inicio_get(Model model, HttpSession session) {
+	public String inicio_get(Model model) {
 		return "index";
 	}
 }
