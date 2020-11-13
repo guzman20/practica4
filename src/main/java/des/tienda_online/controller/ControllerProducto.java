@@ -1,20 +1,24 @@
-package des.springboot_hibernate.controller;
+package des.tienda_online.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-
-import des.springboot_hibernate.dao.ProductoDao;
-import des.springboot_hibernate.entidades.Producto;
+import des.tienda_online.entidades.Producto;
+import des.tienda_online.servicios.ProductoServicio;
 
 @Controller
+@RequestMapping(value = "/modulo")
 public class ControllerProducto {
 	
 	@Autowired
-	private ProductoDao productodao;
+	private ProductoServicio productoServicio;
 	
 	@PostMapping(value = "/index")
 	public String index_post(Model model,  
@@ -23,7 +27,7 @@ public class ControllerProducto {
 		return "productoCrear";
 	}
 	
-	@PostMapping(value = "/productoCrear")
+	@PostMapping(value = "/Crear")
 		public String productoCrear_post(Model model,
 										@RequestParam(value="titulo",required=false) String titulo,
 										@RequestParam(value="descripcion",required=false) String descripcion,
@@ -31,19 +35,22 @@ public class ControllerProducto {
 										@RequestParam(value="descuento",required=false) Double descuento
 										) {
 		Producto producto = new Producto(titulo,descripcion,precio,descuento);
-		productodao.save(producto);
+		productoServicio.crearProducto(producto);
 		
 		return "index";
 	}
-	/*
-	 * TODO
-	@GetMapping(value="/{id}Producto")
-	public @ResponseBody ResponseEntity<String> 
-	getById(@PathVariable String id) {
-		
 	
-		return "productoCrear";
-}*/
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ModelAndView perfilProducto(@PathVariable("id") long idProducto) {
 
+		ModelAndView mav = new ModelAndView();
+
+		Producto producto = productoServicio.obtenerProducto(idProducto);
+
+		mav.addObject("producto", producto);
+		mav.setViewName("/producto/perfil");
+		return mav;
+	}
 	
 }

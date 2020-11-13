@@ -1,11 +1,33 @@
-package des.springboot_hibernate.entidades;
+package des.tienda_online.entidades;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "productos")
 public class Producto {
+	
+	private static final long serialVersionUID = -7929690108419204859L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_producto")
 	private Long id;
+	
+	@Column(name = "titulo")
 	private String titulo;
+	
+	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@Column(name = "precio")
 	private Double precio;
+	
+	@Column(name = "descuento")
 	private Double descuento;
 	
 	public 	Producto() {
