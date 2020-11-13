@@ -14,20 +14,20 @@ import des.tienda_online.entidades.Producto;
 import des.tienda_online.servicios.ProductoServicio;
 
 @Controller
-@RequestMapping(value = "/modulo")
+@RequestMapping(value = "/Producto")
 public class ControllerProducto {
 	
 	@Autowired
 	private ProductoServicio productoServicio;
 	
-	@PostMapping(value = "/index")
+	@PostMapping("/index")
 	public String index_post(Model model,  
 							@RequestParam(value="respuesta",required=false) String respuesta ) {
 					
-		return "productoCrear";
+		return "Crear";
 	}
 	
-	@PostMapping(value = "/Crear")
+	@PostMapping("/Crear")
 		public String productoCrear_post(Model model,
 										@RequestParam(value="titulo",required=false) String titulo,
 										@RequestParam(value="descripcion",required=false) String descripcion,
