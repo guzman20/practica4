@@ -24,7 +24,7 @@ public class ControllerProducto {
 	@GetMapping("/Crear")
 	public String index_post(Model model) {
 					
-		return "Crear";
+		return "Producto/Crear";
 	}
 	
 	@PostMapping("/Crear")
@@ -37,7 +37,7 @@ public class ControllerProducto {
 		Producto producto = new Producto(titulo,descripcion,precio,descuento);
 		productoServicio.crearProducto(producto);
 		
-		return "index";
+		return "redirect:/index";
 	}
 	
 	
@@ -49,7 +49,7 @@ public class ControllerProducto {
 		Producto producto = productoServicio.obtenerProducto(idProducto);
 
 		mav.addObject("producto", producto);
-		mav.setViewName("producto/perfil");
+		mav.setViewName("perfil");
 		return mav;
 	}
 	
