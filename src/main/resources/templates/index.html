@@ -28,7 +28,7 @@
 	</style>
 </head>
 <body>
-	<h1>¡Hola mundo!</h1>
+	<h1>¡Bienvenido!</h1>
 	<form method="post" th:action="@{/index}" autocomplete="on">
 		<div class="form-group entrada">
 			<div class="custom-control custom-radio">
@@ -38,5 +38,10 @@
 			<input type="submit" value="Empezar" class="btn btn-primary boton" />
 		</div>
 	</form>
+	<table>
+	<tr th:each="Producto: ${lista}">
+    	<td th:text="${Producto.titulo}" />
+	</tr>
+	</table>
 </body>
 </html>

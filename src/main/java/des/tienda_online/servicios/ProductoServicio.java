@@ -1,5 +1,7 @@
 package des.tienda_online.servicios;
 
+import java.util.List;
+
 import des.tienda_online.entidades.Producto;
 
 public interface ProductoServicio {
@@ -11,4 +13,6 @@ public interface ProductoServicio {
 	public Producto actualizarProducto(Producto producto);
 	
 	public void eliminarProducto(long idProducto);
+	
+	public List<Producto> listarProductos();
 }

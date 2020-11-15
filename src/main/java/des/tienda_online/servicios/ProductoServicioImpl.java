@@ -1,5 +1,7 @@
 package des.tienda_online.servicios;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,11 @@ public class ProductoServicioImpl implements ProductoServicio {
 	@Override
 	public Producto actualizarProducto(Producto producto) {
 		return productoDao.update(producto);
+	}
+
+	@Override
+	public List<Producto> listarProductos() {
+		return productoDao.listarProductos();
 	}
 
 }

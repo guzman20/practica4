@@ -17,6 +17,10 @@
 <span th:text="${producto.descripcion}">Descripcion </span>
 <span th:text="${producto.precio}">Precio </span>
 <span th:text="${producto.descuento}">Descuento </span>
+
+<form method="post" th:action="@{/Producto/borrar/{id}(id=${producto.id})}" autocomplete="on">
+<input type="submit" value="Borrar Producto" class="btn btn-danger borrar">
+</form>
 						
 </body>
 </html>

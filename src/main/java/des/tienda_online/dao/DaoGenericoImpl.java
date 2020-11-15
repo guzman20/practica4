@@ -41,8 +41,6 @@ public abstract class DaoGenericoImpl<T> implements DaoGenerico<T>{
 		this.em.remove(this.em.getReference(type, id));
 	}
 
-
-
 	
 
 }

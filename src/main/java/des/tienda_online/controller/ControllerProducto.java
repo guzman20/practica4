@@ -49,8 +49,16 @@ public class ControllerProducto {
 		Producto producto = productoServicio.obtenerProducto(idProducto);
 
 		mav.addObject("producto", producto);
-		mav.setViewName("perfil");
+		mav.setViewName("Producto/perfil");
 		return mav;
 	}
 	
+	@RequestMapping(method = RequestMethod.POST, value = "borrar/{id}")
+	public String productoBorrar_post(Model model,
+			@PathVariable("id") long idProducto
+			) {
+			productoServicio.eliminarProducto(idProducto);
+
+			return "redirect:/index";
+}
 }

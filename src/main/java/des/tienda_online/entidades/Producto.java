@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "productos")
+@Table(name = "Producto")
 public class Producto {
 	
 	private static final long serialVersionUID = -7929690108419204859L;
