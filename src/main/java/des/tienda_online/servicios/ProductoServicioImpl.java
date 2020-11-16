@@ -42,5 +42,10 @@ public class ProductoServicioImpl implements ProductoServicio {
 	public List<Producto> listarProductos() {
 		return productoDao.listarProductos();
 	}
+	
+	@Override
+	public List<Producto> buscarProductoPorNombre(String nombre){
+		return productoDao.buscarProductoPorNombre(nombre);
+	}
 
 }

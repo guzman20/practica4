@@ -1,5 +1,7 @@
 package des.tienda_online.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,4 +63,15 @@ public class ControllerProducto {
 
 			return "redirect:/index";
 }
+	@RequestMapping(method = RequestMethod.GET, value = "/buscar?nombre={nombre}")
+	public ModelAndView buscarProducto(@PathVariable("nombre") String nombre) {
+
+		ModelAndView mav = new ModelAndView();
+
+		List<Producto> producto = productoServicio.buscarProductoPorNombre(nombre);
+
+		mav.addObject("producto", producto);
+		mav.setViewName("Producto/resultado");
+		return mav;
+	}
 }

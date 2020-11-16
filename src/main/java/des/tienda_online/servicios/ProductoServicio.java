@@ -15,4 +15,6 @@ public interface ProductoServicio {
 	public void eliminarProducto(long idProducto);
 	
 	public List<Producto> listarProductos();
+	
+	public List<Producto> buscarProductoPorNombre(String nombre);
 }

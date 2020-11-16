@@ -24,6 +24,19 @@ public class ProductoDaoImpl extends DaoGenericoImpl<Producto> implements Produc
 		return null;
 	}
 
+	@Override
+	public List<Producto> buscarProductoPorNombre(String nombre) {
+		Query query = this.em.createQuery("FROM Producto  WHERE titulo LIKE '%(n.nombre= :nombre)%'");
+		List<Producto> lProducto = query.getResultList();
+
+		if (lProducto != null) {
+			return lProducto;
+		}
+		return null;
+	}
+
+	
+
 	
 
 }
