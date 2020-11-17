@@ -14,8 +14,8 @@ import des.tienda_online.entidades.Producto;
 public class ProductoDaoImpl extends DaoGenericoImpl<Producto> implements ProductoDao {
 	
 	@Override
-	public List<Producto> listarProductos() {
-		Query query = this.em.createQuery("FROM Producto");
+	public List<Producto> listarProductos(Integer maximo) {
+		Query query = this.em.createQuery("FROM Producto").setMaxResults(maximo);
 		List<Producto> lProducto = query.getResultList();
 
 		if (lProducto != null) {
@@ -26,7 +26,9 @@ public class ProductoDaoImpl extends DaoGenericoImpl<Producto> implements Produc
 
 	@Override
 	public List<Producto> buscarProductoPorNombre(String nombre) {
-		Query query = this.em.createQuery("FROM Producto  WHERE titulo LIKE '%(n.nombre= :nombre)%'");
+		Query query = this.em.createQuery("FROM Producto WHERE titulo LIKE :nombre");
+		query.setParameter("nombre", nombre);
+		
 		List<Producto> lProducto = query.getResultList();
 
 		if (lProducto != null) {

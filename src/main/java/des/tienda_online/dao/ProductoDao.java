@@ -7,7 +7,7 @@ import des.tienda_online.entidades.Producto;
 
 public interface ProductoDao extends DaoGenerico<Producto> {
 	
-	public List<Producto> listarProductos();
+	public List<Producto> listarProductos(Integer maximo);
 
 	public List<Producto> buscarProductoPorNombre(String nombre);
 }

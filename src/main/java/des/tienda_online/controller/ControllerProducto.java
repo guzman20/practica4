@@ -24,12 +24,18 @@ public class ControllerProducto {
 	private ProductoServicio productoServicio;
 	
 	@GetMapping("/Crear")
-	public String index_post(Model model) {
+	public String crear_get(Model model) {
 					
 		return "Producto/Crear";
 	}
 	
 	@PostMapping("/Crear")
+	public String crear_post(Model model) {
+					
+		return "Producto/Crear";
+	}
+	
+	@PostMapping("/Creado")
 		public String productoCrear_post(Model model,
 										@RequestParam(value="titulo",required=false) String titulo,
 										@RequestParam(value="descripcion",required=false) String descripcion,
@@ -63,15 +69,16 @@ public class ControllerProducto {
 
 			return "redirect:/index";
 }
-	@RequestMapping(method = RequestMethod.GET, value = "/buscar?nombre={nombre}")
-	public ModelAndView buscarProducto(@PathVariable("nombre") String nombre) {
+	@RequestMapping(method = RequestMethod.POST, value = "/buscar")
+	public ModelAndView buscarProducto(Model model,
+										@RequestParam(value="titulo",required=false) String titulo) {
 
 		ModelAndView mav = new ModelAndView();
 
-		List<Producto> producto = productoServicio.buscarProductoPorNombre(nombre);
+		List<Producto> lista = productoServicio.buscarProductoPorNombre(titulo);
 
-		mav.addObject("producto", producto);
-		mav.setViewName("Producto/resultado");
+		mav.addObject("lista", lista);
+		mav.setViewName("Producto/buscar");
 		return mav;
 	}
 }

@@ -14,7 +14,7 @@ public interface ProductoServicio {
 	
 	public void eliminarProducto(long idProducto);
 	
-	public List<Producto> listarProductos();
+	public List<Producto> listarProductos(Integer maximo);
 	
 	public List<Producto> buscarProductoPorNombre(String nombre);
 }

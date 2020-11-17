@@ -29,18 +29,23 @@
 </head>
 <body>
 	<h1>¡Bienvenido!</h1>
-	<form method="post" th:action="@{/index}" autocomplete="on">
+	<form method="post" th:action="@{/Producto/buscar}" autocomplete="on">
 		<div class="form-group entrada">
-			<div class="custom-control custom-radio">
-				<input type="radio" name="crear" value="crear" class="custom-control-input" id="1">
-				<label for="1" class="custom-control-label">Crear</label>
-			</div>
-			<input type="submit" value="Empezar" class="btn btn-primary boton" />
+			<label for="1" class="custom-label">Nombre del articulo:</label>
+			<input type="search" name="titulo" id="1">
+			<input type="submit" value="Buscar" class="btn btn-primary boton" />
 		</div>
 	</form>
+	<div class="form-group entrada">
+		<form method="post" th:action="@{/Producto/Crear}" autocomplete="on">
+			<input type="submit" value="Crear" class="btn btn-primary boton" />
+		</form>
+	</div>
 	<table>
 	<tr th:each="Producto: ${lista}">
-    	<td th:text="${Producto.titulo}" />
+    	<td>
+    		<a th:href="@{/Producto/{id}(id=${Producto.id})}" th:text="${Producto.titulo}"></a>
+		</td>
 	</tr>
 	</table>
 </body>
